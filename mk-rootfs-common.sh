@@ -17,7 +17,7 @@ fi
 
 mkdir $TARGET_ROOTFS_DIR 
 echo -e "\033[36m Extract image \033[0m"
-sudo tar -xpf ubuntu-base-16.04.6-base-${ARCH}.tar.gz -C $TARGET_ROOTFS_DIR
+sudo tar -xpf ubuntu-base-16.04.2-base-${ARCH}.tar.gz -C $TARGET_ROOTFS_DIR
 
 
 set +e
@@ -58,21 +58,21 @@ cat <<EOF | sudo chroot $TARGET_ROOTFS_DIR
 
 apt-get update
 
-apt-get -y install sudo vim udev kmod usbutils net-tools ethtool wireless-tools inetutils-ping openssh-server bash-completion can-utils build-essential u-boot-tools i2c-tools wget 
-apt-get -y install qt5-default
-apt-get -y install autoconf automake libtool
-apt-get -y install ntp ntpdate iptables traceroute resolvconf
-apt-get -y install nfs-kernel-server nfs-common
+apt-get -f -y install sudo vim udev kmod usbutils net-tools ethtool wireless-tools inetutils-ping openssh-server bash-completion can-utils build-essential u-boot-tools i2c-tools wget 
+apt-get -f -y install qt5-default
+apt-get -f -y install autoconf automake libtool
+apt-get -f -y install ntp ntpdate iptables traceroute resolvconf
+apt-get -f -y install nfs-kernel-server nfs-common
 
 cat /etc/version | grep -q gui && {
-	apt-get -y install locales
-	apt-get -y install tzdata
-	apt-get -y install language-pack-zh-hans
-	apt-get -y install language-pack-en-base
-	apt-get -y install keyboard-configuration
+	apt-get -f -y install locales
+	apt-get -f -y install tzdata
+	apt-get -f -y install language-pack-zh-hans
+	apt-get -f -y install language-pack-en-base
+	apt-get -f -y install keyboard-configuration
 
-	apt-get -y install lxde
-	apt-get -y install lubuntu-default-session
+	apt-get -f -y install lxde
+	apt-get -f -y install lubuntu-default-session
 }
 
 
