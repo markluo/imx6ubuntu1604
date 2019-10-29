@@ -67,6 +67,7 @@ apt-get -f -y install nfs-kernel-server nfs-common
 cat /etc/version | grep -q gui && {
 	apt-get -f -y install locales
 	apt-get -f -y install tzdata
+	dpkg-reconfigure tzdata
 	apt-get -f -y install language-pack-zh-hans
 	apt-get -f -y install language-pack-en-base
 	apt-get -f -y install keyboard-configuration
